@@ -9,9 +9,11 @@
           crossorigin="anonymous">
 
     <style>
+
         body{
     background-color: #FAFAFA;
     margin: 0;
+
 }
 
 nav{
@@ -50,9 +52,9 @@ nav{
 .bio{
     display:grid;
     grid-template-columns: 1fr 2fr ;
-    height: 13em;
+    height: 15em;
     padding: 3em 0 0 5em;
-    border-bottom: 0.5px solid #DBDBDB;
+    border-bottom: 1px solid #DBDBDB;
 }
 .profile-photo{
     width: 100%;
@@ -82,6 +84,9 @@ nav{
     display: flex;
     justify-content: center;
     margin-top: 16px;
+}
+.username{
+    margin-left: 50px;
 }
 .statiskItem{
     position: relative;
@@ -113,6 +118,107 @@ nav{
     letter-spacing: 0.7px;
 
 }
+.description{
+    color: #868686;
+    font-size: 18px;
+
+}
+main{
+      margin-left: 120px;
+        width: 100%;
+        margin-top: 40px;
+}
+.box{
+ width: 40%;
+ float: left;
+ padding: 7px;
+ padding-left: 50px;
+ display: block;
+
+}
+.img-gallery{
+ width: 100%;
+    border-radius: 4px;
+
+}
+.img-gallery:hover{
+  transform: scale(1.3,1.3);
+  transition: .3s transform;
+
+}
+main{
+    margin-left: 120px;
+    width: 100%;
+    margin-top: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.col-div-4-1{
+  width: 33.3%;
+  float: left;
+    padding: 30px;
+}
+.col-div-4-2{
+  width: 40.3%;
+  float: left;
+    padding: 30px;
+    position: relative;
+    left: 200px;
+}
+.box{
+	width: 88%;
+	height: 150px;
+	background-color: #ffffff;
+	margin-left: 10px;
+	padding:10px;
+  box-shadow: 2px 5px 10px #ddd;
+  position: relative;
+}
+.box p{
+    color: #6c7293;
+    font-weight: 500;
+    padding-left: 10px;
+}
+.number{
+  font-size: 35px;
+  margin-bottom: 0px;
+  margin-top: 20px;
+}
+.percent{
+  margin: 0px;
+  font-size: 14px;
+  color: #37bf37!important;
+}
+.percent span{
+  font-size: 12px;
+  color: #9398b1;
+  padding-left: 3px;
+}
+.head-1{
+  font-size: 18px!important;
+  margin: 10px 0px;
+      color: #6c7293;
+}
+.head-1 span{
+    float: right;
+    background-color: #5643ff;
+    color: white;
+    padding: 3px 10px;
+    font-size: 15px;
+}
+.box-icon{
+	    font-size: 20px!important;
+    margin-top: 35px!important;
+    color: #5643ff;
+    padding-right: 10px;
+    background-color: #efeff5;
+    padding: 15px;
+    border-radius: 25px;
+    position: absolute;
+    right: 16px;
+    top: -18px;
+}
+
 
     </style>
 
@@ -138,12 +244,14 @@ nav{
 
             </div>
             <div class="profile-info">
-                <p class="username">quartiershelden.nrw</p>
+                <h3 class="username">Insights-Überblick</h3>
                 <ul class="statiskItem">
                     <li><h6 class="statiskItem__num">23</h6> Beiträge</li>
                     <li><h6 class="statiskItem__num">1.093</h6> Abonnenten</li>
                     <li><h6 class="statiskItem__num">623</h6> Abonniert</li>
                 </ul>
+                <p class="description">Lokaler Diensleister</p>
+                <p>Initiativen, Projekte & Gründer mit Impact im Quartier <a href="https://quartiershelden.de/"> quartiershelden.de</a></p>
             </div>
         </section>
         <ul class="navigationList">
@@ -161,6 +269,9 @@ nav{
 
     </div>
     <script src="https://kit.fontawesome.com/d893a1e347.js" crossorigin="anonymous"></script>
+
+    {% block content %}
+    {% endblock %}
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
