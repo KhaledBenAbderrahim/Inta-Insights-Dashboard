@@ -156,16 +156,16 @@ main{
 .col-div-4-1{
   width: 33.3%;
   float: left;
-    padding: 30px;
+    padding: 10px;
 }
 .col-div-4-2{
   width: 40.3%;
   float: left;
-    padding: 30px;
+    padding: 10px;
     position: relative;
     left: 200px;
 }
-.box{
+.box-p1{
 	width: 88%;
 	height: 150px;
 	background-color: #ffffff;
@@ -174,7 +174,16 @@ main{
   box-shadow: 2px 5px 10px #ddd;
   position: relative;
 }
-.box p{
+.box-p2{
+	width: 88%;
+	height: 480px;
+	background-color: #ffffff;
+	margin-left: 10px;
+	padding:30px;
+  box-shadow: 2px 5px 10px #ddd;
+  position: relative;
+}
+.box-p1 p{
     color: #6c7293;
     font-weight: 500;
     padding-left: 10px;
@@ -218,6 +227,16 @@ main{
     right: 16px;
     top: -18px;
 }
+.nav-anchor{
+    text-decoration: none;
+    color: #868686 ;
+}
+.nav-anchor:hover{
+    text-decoration: none;
+    color: black ;
+    font-size: 115%;
+    transition: font-size 1s,color 1s;
+}
 
 
     </style>
@@ -240,8 +259,9 @@ main{
     <div class="container">
         <section class="bio">
             <div class="profile-photo">
-                <img src="{% static 'image/bild.jpg' %}">
-
+                <a href="{% url 'Home' %}">
+                    <img src="{% static 'image/bild.jpg' %}">
+                </a>
             </div>
             <div class="profile-info">
                 <h3 class="username">Insights-Überblick</h3>
@@ -256,13 +276,13 @@ main{
         </section>
         <ul class="navigationList">
             <li class="navigationItem" ><i class="fas fa-chart-pie"></i>
-                <p class="navigationItem__Text">Content-Interaktionen</p>
+                <p class="navigationItem__Text"><a class="nav-anchor" href="{% url 'Content'%}">Content-Interaktionen</a></p>
             </li>
             <li class="navigationItem" ><i class="fas fa-project-diagram"></i>
-                <p class="navigationItem__Text">Erreichte_Konten</p>
+                <p class="navigationItem__Text"><a class="nav-anchor" href="{% url 'Account'%}">Erreichte_Konten</a></p>
             </li>
             <li class="navigationItem"><i class="fas fa-chart-pie"></i>
-                <p class="navigationItem__Text">Zielgruppe</p>
+                <p class="navigationItem__Text"><a class="nav-anchor" href="{% url 'Group'%}">Zielgruppe</a></p>
             </li>
 
         </ul>
@@ -277,5 +297,7 @@ main{
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
         crossorigin="anonymous"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
 
 </html>
