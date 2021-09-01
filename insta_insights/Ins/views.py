@@ -1,12 +1,18 @@
 from django.shortcuts import render
 import plotly.express as px
+import datetime as dt
 
 
 # Create your views here.
 
 
 def dashboard(request):
-    return render(request,'Ins/dashboard.html')
+    current_datetime = dt.datetime.now()
+    string_date = current_datetime.strftime("%A,%B,%d,%Y")
+    content={
+        'date':string_date
+    }
+    return render(request,'Ins/dashboard.html',content)
 
 def erreichte_Konten(request):
     df = px.data.tips()
@@ -43,4 +49,9 @@ def content_Interaktionen(request):
     return render(request ,'Ins/Content-Interaktionen.html')
 
 def zielGruppe(request):
-    return render(request,'Ins/Zielgruppe.html')
+    df = px.data.gapminder().query("year==2007")
+    fig = px.scatter_geo(df, locations="iso_alpha", color="continent",
+                         hover_name="country", size="pop",
+                         projection="natural earth",title="Welt Karte")
+    graph=fig.to_html()
+    return render(request,'Ins/Zielgruppe.html',context={'fig':graph})
