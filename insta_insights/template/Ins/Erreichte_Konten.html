@@ -3,6 +3,8 @@
 {% block content %}
 
 <main>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 	<div class="col-div-4-1">
 		<div class="box-p1">
 			<p class="head-1">Impressionen</p>
@@ -28,18 +30,139 @@
 		</div>
 	</div>
 
-<div class="col-div-4-2">
+<div class="col-div-4-1">
 	<div class="box-p2">
-		{{ plot_div | safe }}
+		<div>
+	<canvas id="myChart1"></canvas>
+    </div>
+
+    <script>
+      var ctx = document.getElementById('myChart1').getContext('2d');
+      var myChart = new Chart(ctx, {
+          type: 'radar',
+          data: {
+            labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            datasets: [{
+                data: [86,114,106,106,107,111,133],
+                label: "Total",
+                borderColor: "#3e95cd",
+                backgroundColor: "rgb(62,149,205,0.1)",
+                borderWidth:2,
+
+              }, {
+                data: [70,90,44,60,83,90,100],
+                label: "Accepted",
+                borderColor: "#3cba9f",
+                backgroundColor: "rgb(60,186,159,0.1)",
+                borderWidth:2,
+
+              }, {
+                data: [10,21,60,44,17,21,17],
+                label: "Pending",
+                borderColor: "#ffa500",
+                backgroundColor:"rgb(255,165,0,0.1)",
+                borderWidth:2,
+
+              }, {
+                data: [6,3,2,2,7,0,16],
+                label: "Rejected",
+                borderColor: "#c45850",
+                backgroundColor:"rgb(196,88,80,0.1)",
+                borderWidth:2,
+
+              }
+            ]
+          },
+          options: {
+             scales: {
+               xAxes: [{
+                  display: false,
+               }],
+             }
+           },
+        });
+    </script>
 
 	</div>
 </div>
 
-<div class="col-div-4-2">
+<div class="col-div-4-1">
 	<div class="box-p2">
-		{{ plot_div2 | safe }}
+		<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+<script>
+var xValues = ["Bremen", "Hamburg", "Berlin", "Frankfurt", "München"];
+var yValues = [55, 49, 44, 24, 15];
+var barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
+
+new Chart("myChart", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "World Wide Wine Production 2018"
+    }
+  }
+});
+</script>
 	</div>
 </div>
+	<div class="col-div-4-1">
+			<div class="box-p2">
+				<div>
+	<canvas id="myChart2"></canvas>
+    </div>
+
+    <script>
+      var ctx = document.getElementById('myChart2').getContext('2d');
+      var myChart = new Chart(ctx, {
+          type: 'pie',
+          data: {
+            labels: ["Accepted","Pending", "Rejected"],
+            datasets: [{
+                data: [70,10,6],
+                borderColor:[
+                  "#3cba9f",
+                  "#ffa500",
+                  "#c45850",
+                ],
+                backgroundColor: [
+                  "rgb(60,186,159,0.1)",
+                  "rgb(255,165,0,0.1)",
+                  "rgb(196,88,80,0.1)",
+                ],
+                borderWidth:2,
+              }]
+          },
+        options: {
+          scales: {
+            xAxes: [{
+               display: false,
+            }],
+            yAxes: [{
+               display: false,
+            }],
+          }
+        },
+      });
+
+    </script>
+			</div>
+
+	</div>
 
 
 </main>
